@@ -43,9 +43,10 @@ const appRoutes: Routes = [
   {path:'create-account', component: CreateAccountComponent},
   {path:'search', component: SearchComponent},
   {path:'account-list', component: AccountListComponent},
-  {path:'thank-you-account', component: ThankYouAccountComponent}
+  {path:'thank-you-account', component: ThankYouAccountComponent},
+  {path:'login', component: LoginComponent}
 
-]
+];
 
 @NgModule({
   declarations: [

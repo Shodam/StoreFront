@@ -19,6 +19,4 @@ users: any[];
   }
   ngOnInit(): void {
   }
-
-  displayedColumns: string[] = ['Username', 'First Name', 'Last Name'];
 }

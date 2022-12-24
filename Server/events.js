@@ -1,4 +1,5 @@
 const express = require('express');
+const mysql = require("mysql");
 
 function createRouter(db) {
   const router = express.Router();
@@ -32,6 +33,27 @@ function createRouter(db) {
         }
       }
     );
+  });
+  router.post('/login', function (req, res, next) {
+    const username = req.body.username;
+    const password = req.body.password;
+    let sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
+    let values = [username, password];
+    sql = mysql.format(sql, values);
+    db.query(sql, (error, result) => {
+      if (error) {
+        throw error;
+      }
+      if (result.length > 0) {
+        // login successful
+        res.json({ success: true });
+      } else {
+        // login failed
+        res.json({ success: false });
+      }
+    });
+
+
   });
 
   router.put('/event/:id', function (req, res, next) {

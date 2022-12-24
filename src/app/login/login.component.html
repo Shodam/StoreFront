@@ -1,1 +1,39 @@
-<p>login works!</p>
+<form (ngSubmit)="loginAccount(username,password)">
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input [(ngModel)]="account.username" name="username" class="form-control" />
+    <label class="form-label">Username</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" [(ngModel)]="account.password" name="password" class="form-control" />
+    <label class="form-label">Password</label>
+  </div>
+
+
+  <!-- Submit button -->
+  <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+
+  <!-- Register buttons -->
+  <div class="text-center">
+    <p>Not a member? <a href="#!">Register</a></p>
+    <p>or sign up with:</p>
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-facebook-f"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-google"></i>
+    </button>
+    <p *ngIf="statusMessage">{{statusMessage}}</p>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-twitter"></i>
+    </button>
+
+    <button type="button" class="btn btn-link btn-floating mx-1">
+      <i class="fab fa-github"></i>
+    </button>
+  </div>
+</form>
